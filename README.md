@@ -17,6 +17,24 @@ axios.get('/documents/', {
 })
 ```
 
+or with completely data:
+```js
+var input = {
+  filter: [
+    {name:'id', value: '1', type: qrest.filters.contains},
+    {name:'issue_date', value: ['2018-01-01', '2018-03-30'], type: qrest.filters.range},
+    {name:'price',  value: 0, type: qrest.filters.equal},
+  ],
+  include: [
+    'manager', 'groups'
+  ],
+  sort: [
+    'start_date'
+  ]
+}
+qrest.query(input)
+```
+
 ### Full list of filters
 * in
 * any
